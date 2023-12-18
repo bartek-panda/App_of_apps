@@ -8,13 +8,6 @@ def registryCredentials="dockerhub"
 
 def dockerTag = ''
 
-parameters {
-  string 'backendDockerTag'
-  string 'frontenddDockerTag'
-}
-
-
-
 
 pipeline {
     agent {
@@ -23,6 +16,10 @@ pipeline {
 environment{
     PIP_BREAK_SYSTEM_PACKAGES=1
     scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+}
+parameters {
+  string 'backendDockerTag'
+  string 'frontenddDockerTag'
 }
 
     stages {
