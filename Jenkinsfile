@@ -48,6 +48,12 @@ environment{
                 }
         }
     }
+        stage('Install requirements.yml') {
+          steps {
+              sh "pip3 install requirements.yml"
+          }
+          
+      }
       stage('Deploy application') {
             steps {
                 script {
@@ -60,6 +66,12 @@ environment{
                 }
             }
         }
+        stage('Delete containers') {
+          steps {
+              sh "python3 -m pytest"
+          }
+          
+      }
     }
   post {
   always {
