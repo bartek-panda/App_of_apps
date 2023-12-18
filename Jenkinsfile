@@ -32,7 +32,7 @@ environment{
             }
             
         }
-          stages {
+          stage {
         stage('Delete containers') {
             steps {
                 sh "docker rm -f frontend backend"
