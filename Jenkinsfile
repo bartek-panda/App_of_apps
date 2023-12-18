@@ -1,6 +1,22 @@
-def imageName = '192.168.44.44:8082/docker_registry/frontend'
+def frontendImage="bartello88/frontend"
+def backendImage="bartello88/backend"
+def backendDockerTag=""
+def frontendDockerTag=""
+def dockerRegistry=""
+def registryCredentials="dockerhub"
+
+def backendDockerTag=""
+def frontendDockerTag=""
+
 
 def dockerTag = ''
+
+parameters {
+  string 'backendDockerTag'
+  string 'frontenddDockerTag'
+}
+
+
 
 
 pipeline {
@@ -19,6 +35,16 @@ environment{
             }
             
         }
+        stage('Adjust Version'){
+            steps{
+                scripts{
+                    backendDockerTag = params.backendDockerTag.isEmpty() ? "latest" : 
+                    params.backendDockerTag
 
+                    frontendDockerTag = params.frontendDockerTag.isEmpty() ? "latest" : 
+                    params.frontendDockerTag
+                }
+            }
+        }
     }
 }
