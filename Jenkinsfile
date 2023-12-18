@@ -66,7 +66,7 @@ environment{
                 }
             }
         }
-        stage('Delete containers') {
+        stage('Run tests') {
           steps {
               sh "python3 -m pytest"
           }
