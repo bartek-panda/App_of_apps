@@ -43,11 +43,15 @@ environment{
                 scripts{
                     backendDockerTag = params.backendDockerTag.isEmpty() ? "latest" : 
                     params.backendDockerTag
-
-                    frontendDockerTag = params.frontendDockerTag.isEmpty() ? "latest" : 
-                    params.frontendDockerTag
                 }
             }
+                      steps{
+                scripts{
+                  frontendDockerTag = params.frontendDockerTag.isEmpty() ? "latest" : 
+                    params.frontendDockerTag
+        }
+
+                      }
         }
     }
 }
