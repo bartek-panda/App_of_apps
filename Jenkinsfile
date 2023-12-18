@@ -5,9 +5,6 @@ def frontendDockerTag=""
 def dockerRegistry=""
 def registryCredentials="dockerhub"
 
-def backendDockerTag=""
-def frontendDockerTag=""
-
 
 def dockerTag = ''
 
@@ -32,6 +29,13 @@ environment{
         stage('Get Code') {
             steps {
                 checkout scm
+            }
+            
+        }
+          stages {
+        stage('Delete containers') {
+            steps {
+                sh "docker rm -f frontend backend"
             }
             
         }
