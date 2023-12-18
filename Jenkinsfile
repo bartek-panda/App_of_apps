@@ -48,12 +48,6 @@ environment{
                 }
         }
     }
-        stage('Install requirements.yml') {
-          steps {
-              sh "pip3 install requirements.yml"
-          }
-          
-      }
       stage('Deploy application') {
             steps {
                 script {
@@ -68,7 +62,8 @@ environment{
         }
         stage('Run tests') {
           steps {
-              sh "python3 -m pytest"
+              sh "pip3 install -r test/selenium/requirements.txt"
+              sh "python3 -m pytest test/selenium/frontentTest.py"
           }
           
       }
