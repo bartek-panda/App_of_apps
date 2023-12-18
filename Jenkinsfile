@@ -32,13 +32,12 @@ environment{
             }
             
         }
-          stage {
-        stage('Delete containers') {
-            steps {
-                sh "docker rm -f frontend backend"
-            }
-            
-        }
+      stage('Delete containers') {
+          steps {
+              sh "docker rm -f frontend backend"
+          }
+          
+      }
         stage('Adjust Version'){
             steps{
                 scripts{
