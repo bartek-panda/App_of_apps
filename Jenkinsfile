@@ -19,7 +19,7 @@ environment{
 }
 parameters {
   string 'backendDockerTag'
-  string 'frontenddDockerTag'
+  string 'frontendDockerTag'
 }
 
     stages {
