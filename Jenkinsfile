@@ -13,6 +13,9 @@ pipeline {
     agent {
   label 'agent'
 }
+    tools {
+        terraform 'Terraform'
+    }
 environment{
     PIP_BREAK_SYSTEM_PACKAGES=1
     scannerHome = tool name: 'SonarQube', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
