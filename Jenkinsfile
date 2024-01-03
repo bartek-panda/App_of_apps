@@ -67,7 +67,7 @@ parameters {
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
-                    git branch: 'main', url: 'https://github.com/Panda-Academy-Core-2-0/Terraform'
+                    git branch: 'main', url: 'https://github.com/bartek-panda/Terraform.git'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
                             sh 'terraform init -backend-config=bucket=bartlomiej-zdunek-panda-devops-core-16'
                             sh 'terraform apply -auto-approve -var bucket_name=bartlomiej-zdunek-panda-devops-core-16'
